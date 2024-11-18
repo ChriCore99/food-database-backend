@@ -18,5 +18,11 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        // dico quali seeder lanciare uan volta in funzione per poterne lanciare più di uno alla volta in un colpo solo
+        $this->call([
+            CategorySeeder::class,
+            UnedibleSeeder::class,
+        ]);
     }
 }
