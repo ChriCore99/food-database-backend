@@ -56,3 +56,10 @@ CARTELLA ADMIN + CONTROLLER
 
 5. col comando (php artisan make:controller Admin/RecipeController) creo in (app -> http -> controllers -> admin) il controller collegato alla tabella "ricette"
 
+CREAZIONE CRUD + WIEWS
+
+1. dentro (resources -> views -> admin) creo le cartelle, chiamate come le tabelle del DB, che conterranno poi i file (index/show/create/edit.blade.php)
+
+2. creo quindi i file (index/show/create/edit.blade.php) vi inserisco il codice per visualizzarli in pagina
+
+3. dentro (routes -> web.php) creo la rotta unica o le 7 rotte delle crud nel middleware per i controlli di sicurezza

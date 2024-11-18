@@ -1,5 +1,7 @@
 <?php
 
+// importo il controller di categories
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +33,9 @@ Route::middleware(['auth', 'verified'])
     })->name('dashboard');
 
     // creo altre rotte - crud
+
+    // rotta unica delle crud di CATEGORIES
+    Route::resource('categories',CategoryController::class);
 
 });
 
