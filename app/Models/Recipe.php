@@ -13,4 +13,7 @@ class Recipe extends Model
     public function edibles(){
         return $this->belongsToMany(Edible::class);
     }
+
+    // con questa dictura dico a laravel a quale tabella fare riferimento nel DB
+    protected $table = 'recepies';
 }

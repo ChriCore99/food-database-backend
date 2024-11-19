@@ -44,9 +44,23 @@ SEEDER + FAKER
 
 6. col comando (php artisan db:seed) eseguo il "DatabaseSeeder" che lancerà tutti i seeder al suo interno oppure, se voglio cancellare tutti i dati già presenti nelle tabelle del DB, userò il comando (php artisan migrate:fresh --seed) per rilanciare sia le migration che i seeder
 
+CONTROLLI DI SICUREZZA (AUTENTICATION + MIDDLEWARE)
+
+1. dentro (routes -> web.php) modifico la route “/dashboard” in “/admin” e nel return diventerà "admin.dashboard"
+
+2. dentro (app -> providers -> RouteServiceProvider.php) modifico (public const HOME = ‘/dashboard’) in (public const HOME = ‘/admin’)
+
+3. dentro (resources -> views -> layouts -> app.blade.php) modifico il primo "url" del primo "dropdown-item" del "dropdown-menu" in "admin"
+
+4. dentro (resources -> views) creo cartella chiamata “admin”, ci sposto dentro il file “dashboard.blade.php” e creerò qui ogni file protetto da password
+
+5. dentro (app -> https -> controllers) creo cartella “Admin”. qui inserirò poi i controller protetti da password
+
+6. dentro (routes -> web.php) creo un gruppo di middleware e di rotte, sposto la route "admin" qui dentro e cancello "->middleware(['auth', 'verified'])" essendo già nel middleware in cui ho spostato la route
+
 CARTELLA ADMIN + CONTROLLER
 
-1. dentro (app -> http -> controllers) creo una tabella "admin" in cui inserirò i controller protetti dai controlli futuri
+1. dentro (app -> http -> controllers -> admin) inserisco i controller protetti dai controlli 
 
 2. col comando (php artisan make:controller Admin/CategoryController) creo in (app -> http -> controllers -> admin) il controller collegato alla tabella "categorie"
 
@@ -60,6 +74,14 @@ CREAZIONE CRUD + WIEWS
 
 1. dentro (resources -> views -> admin) creo le cartelle, chiamate come le tabelle del DB, che conterranno poi i file (index/show/create/edit.blade.php)
 
-2. creo quindi i file (index/show/create/edit.blade.php) vi inserisco il codice per visualizzarli in pagina
+2. creo quindi i file (index/show/create/edit.blade.php) e vi inserisco il codice per visualizzare i dati in pagina
 
-3. dentro (routes -> web.php) creo la rotta unica o le 7 rotte delle crud nel middleware per i controlli di sicurezza
+3. dentro (routes -> web.php) creo (o la rotta unica, o le 7 rotte delle crud) nel middleware in modo che siano coperte dai controlli di login
+
+4. inserisco poi nel controller di riferimento le funzioni di: index, show, create, store, edit, update e destroy.
+
+5. se devo replicare il processo per altre tabelle dati, riparto dal punto 1
+
+RIMOZIONE LOGO E AGGIUNTA LINK TABELLE
+
+1. dentro (resources -> views -> layouts -> app.blade.php) rimuovo il logo di bootstrap e inserisco i link per accedere alle index delle varie tabelle
