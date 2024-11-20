@@ -22,18 +22,24 @@ class CategorySeeder extends Seeder
         // creo un array con le varie categorie di cibi
         $food_categories = [
             'cereals and their products',
+            'legumes',
+            'vegetables',
+            'fruits',
             'fresh meats', 
             'processed and preserved meats',
+            'meat-based fast food',
             'offal',
             'fishy products',
+            'milk and yogurt',
             'cheeses',
             'eggs',
             'oils and fats',
+            'sweets and desserts',
             'other products'
         ];
 
-        // creo un ciclo for per scorrere tutte le categorie 
-        for($i = 0; $i < 9; $i++){
+        // creo un ciclo for per generare un tot di categorie 
+        for($i = 0; $i < 15; $i++){
 
             // creo l'istanza del model "category"
             $new_category = new Category();

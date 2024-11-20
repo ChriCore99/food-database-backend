@@ -45,7 +45,7 @@ class UnedibleSeeder extends Seeder
             'conad'
         ];
 
-        // creo un ciclo for per scorrere tutte le categorie 
+        // creo un ciclo for per generare un tot di non edibili 
         for($i = 0; $i < 9; $i++){
 
             // creo l'istanza del model "unedible"

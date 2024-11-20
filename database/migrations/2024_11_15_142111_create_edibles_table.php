@@ -26,13 +26,13 @@ return new class extends Migration
 
             // il tipo di dato "decimal" funziona esattamente come il precedente, però esplicitanto in modo diverso le cifre tot. e quelle dopo la virgola
             // in questo caso 6 tot e 2 dopo al virgola (9999,99)
-            $table->decimal('price', $precision = 6, $scale = 2);
+            $table->decimal('price', $precision = 6, $scale = 2)->nullable();
 
             $table->double('kcal', 6, 2);
 
             $table->double('fats', 6, 2);
 
-            $table->double('of witch satured', 6, 2);
+            $table->double('of_witch_satured', 6, 2);
 
             $table->double('carbohydrates', 6, 2);
 

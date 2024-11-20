@@ -40,15 +40,19 @@ SEEDER + FAKER
 
 4. importo il model e le dipendenze del seeder, poi lo popolo con dei dati da lanciare successivamente
 
-5. dentro (database -> seeders -> DatabaseSeeder.php) creo un elenco dei vari seeder da lanciare in sequenza
+5. col comando (php artisan make:seeder EdibleSeeder) creo in (database -> seeders) il seeder della tabella "edibili"
 
-6. col comando (php artisan db:seed) eseguo il "DatabaseSeeder" che lancerà tutti i seeder al suo interno oppure, se voglio cancellare tutti i dati già presenti nelle tabelle del DB, userò il comando (php artisan migrate:fresh --seed) per rilanciare sia le migration che i seeder
+6. importo il model e le dipendenze del seeder, poi lo popolo con dei dati da lanciare successivamente
+
+7. dentro (database -> seeders -> DatabaseSeeder.php) creo un elenco dei vari seeder da lanciare in sequenza
+
+8. col comando (php artisan db:seed) eseguo il "DatabaseSeeder" che lancerà tutti i seeder al suo interno oppure, se voglio cancellare tutti i dati già presenti nelle tabelle del DB, userò il comando (php artisan migrate:fresh --seed) per rilanciare sia le migration che i seeder
 
 CONTROLLI DI SICUREZZA (AUTENTICATION + MIDDLEWARE)
 
 1. dentro (routes -> web.php) modifico la route “/dashboard” in “/admin” e nel return diventerà "admin.dashboard"
 
-2. dentro (app -> providers -> RouteServiceProvider.php) modifico (public const HOME = ‘/dashboard’) in (public const HOME = ‘/admin’)
+2. dentro (app -> providers -> RouteServiceProvider.php) modifico (public const HOME = '/dashboard') in (public const HOME = '/admin')
 
 3. dentro (resources -> views -> layouts -> app.blade.php) modifico il primo "url" del primo "dropdown-item" del "dropdown-menu" in "admin"
 
