@@ -16,4 +16,9 @@ class Recipe extends Model
 
     // con questa dictura dico a laravel a quale tabella fare riferimento nel DB
     protected $table = 'recepies';
+
+    // dico quali parametri sono riconosciuti e possono essere passati nella EDIT altrimenti darà errore in fase di creazione/modifica
+    protected $fillable = [
+        'recipe_name', 'personal_notes'
+    ];
 }

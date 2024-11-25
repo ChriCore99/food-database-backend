@@ -30,6 +30,8 @@ MODEL + RELAZIONI FRA TABELLE
 
 9. col comando (php artisan make:model Unedible) creo il model della tabella "non edibili"
 
+10. inserisco poi in tutti i model la proprietà "fillable" per dire quali dati della tabella potrò successivamente passare nel db tramite le views "create" e "edit"
+
 SEEDER + FAKER
 
 1. col comando (php artisan make:seeder CategorySeeder) creo in (database -> seeders) il seeder della tabella "categorie"
@@ -73,6 +75,10 @@ CARTELLA ADMIN + CONTROLLER
 4. col comando (php artisan make:controller Admin/UnedibleController) creo in (app -> http -> controllers -> admin) il controller collegato alla tabella "non edibili"
 
 5. col comando (php artisan make:controller Admin/RecipeController) creo in (app -> http -> controllers -> admin) il controller collegato alla tabella "ricette"
+
+6. dentro a ogni controller scriverò poi le function delle varie crud per il loro funzionamento
+
+7. dentro le functions "store" e "update" inserirò le "regole di validazione" per non avere errori dalla "edit" e dalla "create"
 
 CREAZIONE CRUD + WIEWS
 

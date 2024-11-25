@@ -28,23 +28,23 @@ return new class extends Migration
             // in questo caso 6 tot e 2 dopo al virgola (9999,99)
             $table->decimal('price', $precision = 6, $scale = 2)->nullable();
 
-            $table->double('kcal', 6, 2);
+            $table->double('kcal', 6, 2)->nullable();
 
-            $table->double('fats', 6, 2);
+            $table->double('fats', 6, 2)->nullable();
 
-            $table->double('of_witch_satured', 6, 2);
+            $table->double('of_witch_satured', 6, 2)->nullable();
 
-            $table->double('carbohydrates', 6, 2);
+            $table->double('carbohydrates', 6, 2)->nullable();
 
-            $table->double('sugars', 6, 2);
+            $table->double('sugars', 6, 2)->nullable();
 
-            $table->double('proteins', 6, 2);
+            $table->double('proteins', 6, 2)->nullable();
 
-            $table->double('salts', 6, 2);
+            $table->double('salts', 6, 2)->nullable();
 
-            $table->double('calcium', 6, 2);
+            $table->double('calcium', 6, 2)->nullable();
 
-            $table->double('colesterole', 6, 2);
+            $table->double('colesterole', 6, 2)->nullable();
 
             // il tipo di dato "text" può contenere fino a 65535 carateri di testo
             $table->text('notes')->nullable();

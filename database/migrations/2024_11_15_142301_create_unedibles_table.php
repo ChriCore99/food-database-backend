@@ -22,7 +22,7 @@ return new class extends Migration
 
             // il tipo di dato "double" permette di gestire numeri fino a N. cifre totali(compreso quelle dopo la virgola) arrotondando a N. cifre dopo la virgola 
             // in questo caso 6 tot e 2 dopo al virgola (9999,99) 
-            $table->double('price', 6, 2);
+            $table->double('price', 6, 2)->nullable();
 
             // il tipo di dato "text" può contenere fino a 65535 carateri di testo
             $table->text('notes')->nullable();

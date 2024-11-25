@@ -2,8 +2,15 @@
 
 @section('content')
 
-<section>
-    <h1>sono la home di category</h1>
-</section>
+    <section class="">
+        @foreach($categories as $category)
+            <ul>
+                <li class="d-flex">
+                    <div class="me-3"> Id: {{$category->id}}</div>
+                    <div>Tipologia di cibo: {{$category->food_typology}}</div>
+                </li>
+            </ul>
+        @endforeach
+    </section>
 
 @endsection

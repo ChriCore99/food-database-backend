@@ -18,4 +18,22 @@ class Edible extends Model
     public function recepies(){
         return $this->belongsToMany(Recipe::class);
     }
+
+    // dico quali parametri sono riconosciuti e possono essere passati nella EDIT altrimenti darà errore in fase di creazione/modifica
+    protected $fillable = [
+        'product_name', 
+        'brand_name', 
+        'weight', 
+        'price', 
+        'kcal', 
+        'fats', 
+        'of_witch_satured', 
+        'carbohydrates', 
+        'sugars', 
+        'proteins', 
+        'salts', 
+        'calcium', 
+        'colesterole', 
+        'notes'
+    ];
 }

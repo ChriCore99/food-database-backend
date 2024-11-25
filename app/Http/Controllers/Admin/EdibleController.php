@@ -17,6 +17,8 @@ class EdibleController extends Controller
         return view('admin.edibles.index', compact('edibles'));
     }
 
+    // funzione cestino
+
     // funzione di show in cui dico di recuperare dal model collegato il tot elemento (solitamente tramite l'id) dalla tabella corrispondente
     public function show(Edible $edible) {
         return view('admin.edibles.show', compact('edible'));
@@ -30,6 +32,24 @@ class EdibleController extends Controller
     // funzione store
     public function store(Request $request) {
 
+        // inserisco il codice per la validazione dei dati 
+        $request->validate([
+            'product_name' => 'required', 
+            'brand_name' => 'nullable', 
+            'weight' => 'nullable', 
+            'price' => 'nullable', 
+            'kcal' => 'nullable', 
+            'fats' => 'nullable', 
+            'of_witch_satured' => 'nullable', 
+            'carbohydrates' => 'nullable', 
+            'sugars' => 'nullable', 
+            'proteins' => 'nullable', 
+            'salts' => 'nullable', 
+            'calcium' => 'nullable', 
+            'colesterole' => 'nullable', 
+            'notes' => 'nullable'
+        ]);
+
         // recupero i dati dalla richiesta
         $form_data = $request->all();
 
@@ -42,12 +62,30 @@ class EdibleController extends Controller
 
     // funzione edit
     public function edit(Edible $edible) {
-        // resources/views/names/edit.blade.php
+
         return view('admin.edibles.edit', compact('edible'));
     }
 
     // funzione update
     public function update(Request $request, Edible $edible) {
+
+        // inserisco il codice per la validazione dei dati 
+        $request->validate([
+            'product_name' => 'required', 
+            'brand_name' => 'nullable', 
+            'weight' => 'nullable', 
+            'price' => 'nullable', 
+            'kcal' => 'nullable', 
+            'fats' => 'nullable', 
+            'of_witch_satured' => 'nullable', 
+            'carbohydrates' => 'nullable', 
+            'sugars' => 'nullable', 
+            'proteins' => 'nullable', 
+            'salts' => 'nullable', 
+            'calcium' => 'nullable', 
+            'colesterole' => 'nullable', 
+            'notes' => 'nullable'
+        ]);
 
         // recupero i dati dalla richiesta
         $form_data = $request->all();
@@ -60,7 +98,7 @@ class EdibleController extends Controller
 
     }
 
-    // funzione destroi
+    // funzione delete
     public function destroy(Edible $edible) {
 
         // 
@@ -69,4 +107,11 @@ class EdibleController extends Controller
         // dico di ridirigermi alla index
         return to_route('admin.edibles.index');
     }
+
+    // funzione per ricerca testuale
+
+    // funzione per il ripristino
+
+    // funzione per forzare l'eliminazione
+
 }

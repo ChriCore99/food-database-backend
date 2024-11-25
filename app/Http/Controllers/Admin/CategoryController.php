@@ -17,6 +17,8 @@ class CategoryController extends Controller
         return view('admin.categories.index', compact('categories'));
     }
 
+    // funzione cestino
+
     // funzione di show in cui dico di recuperare dal model collegato il tot elemento (solitamente tramite l'id) dalla tabella corrispondente
     public function show(Category $category) {
         return view('admin.categories.show', compact('category'));
@@ -30,6 +32,11 @@ class CategoryController extends Controller
     // funzione store
     public function store(Request $request) {
 
+        // inserisco il codice per la validazione dei dati 
+        $request->validate([
+            'food_typology' => 'required',
+        ]);
+
         // recupero i dati dalla richiesta
         $form_data = $request->all();
 
@@ -42,12 +49,17 @@ class CategoryController extends Controller
 
     // funzione edit
     public function edit(Category $category) {
-        // resources/views/names/edit.blade.php
+
         return view('admin.categories.edit', compact('category'));
     }
 
     // funzione update
     public function update(Request $request, Category $category) {
+
+        // inserisco il codice per la validazione dei dati 
+        $request->validate([
+            'food_typology' => 'required',
+        ]);
 
         // recupero i dati dalla richiesta
         $form_data = $request->all();
@@ -60,7 +72,7 @@ class CategoryController extends Controller
 
     }
 
-    // funzione destroi
+    // funzione delete
     public function destroy(Category $category) {
 
         // 
@@ -69,4 +81,10 @@ class CategoryController extends Controller
         // dico di ridirigermi alla index
         return to_route('admin.categories.index');
     }
+
+    // funzione per ricerca testuale
+
+    // funzione per il ripristino
+
+    // funzione per forzare l'eliminazione
 }

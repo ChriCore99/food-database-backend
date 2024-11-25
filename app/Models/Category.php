@@ -13,4 +13,9 @@ class Category extends Model
     public function edibles(){
         return $this->hasMany(Edible::class);
     }
+
+    // dico quali parametri sono riconosciuti e possono essere passati nella EDIT altrimenti darà errore in fase di creazione/modifica
+    protected $fillable = [
+        'food_typology',
+    ];
 }

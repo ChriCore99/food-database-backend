@@ -17,6 +17,8 @@ class RecipeController extends Controller
         return view('admin.recepies.index', compact('recepies'));
     }
 
+    // funzione cestino
+
     // funzione di show in cui dico di recuperare dal model collegato il tot elemento (solitamente tramite l'id) dalla tabella corrispondente
     public function show(Recipe $recipe) {
         return view('admin.recepies.show', compact('recipe'));
@@ -30,6 +32,12 @@ class RecipeController extends Controller
     // funzione store
     public function store(Request $request) {
 
+        // inserisco il codice per la validazione dei dati 
+        $request->validate([
+            'recipe_name' => 'required', 
+            'personal_notes' => 'nullable'
+        ]);
+
         // recupero i dati dalla richiesta
         $form_data = $request->all();
 
@@ -42,12 +50,18 @@ class RecipeController extends Controller
 
     // funzione edit
     public function edit(Recipe $recipe) {
-        // resources/views/names/edit.blade.php
+
         return view('admin.recepies.edit', compact('recipe'));
     }
 
     // funzione update
     public function update(Request $request, Recipe $recipe) {
+
+        // inserisco il codice per la validazione dei dati 
+        $request->validate([
+            'recipe_name' => 'required', 
+            'personal_notes' => 'nullable'
+        ]);
 
         // recupero i dati dalla richiesta
         $form_data = $request->all();
@@ -60,7 +74,7 @@ class RecipeController extends Controller
 
     }
 
-    // funzione destroi
+    // funzione delete
     public function destroy(Recipe $recipe) {
 
         // 
@@ -69,4 +83,11 @@ class RecipeController extends Controller
         // dico di ridirigermi alla index
         return to_route('admin.recepies.index');
     }
+
+    // funzione per ricerca testuale
+
+    // funzione per il ripristino
+
+    // funzione per forzare l'eliminazione
+    
 }
